@@ -1,0 +1,554 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Changa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+body{
+    width: calc(100% - 40px);
+    height: calc(100vh - 40px);
+    padding: 20px;
+    background-color: rgb(23, 23, 23);
+    overflow-x: hidden !important;
+    scroll-behavior:smooth;
+}
+section{
+    width: 100%;
+}
+.CreateContainar{
+    max-width: 820px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(38, 38, 38);
+    border-radius: 20px;
+    margin: auto;
+    box-shadow: 0 0 10px 1px white;
+    display: none;
+}
+.CreateContainar .title{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    position: relative;
+}
+.CreateContainar .title .calcIco{
+    background-color: red;
+}
+.CreateContainar .title .calcIco img{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+.CreateContainar .title .calcIco img:hover{
+    scale: 1.15;
+}
+.CreateContainar .title .calcIco .CalcMenu{
+    width: 300px;
+    height: 40px;
+    position: absolute;
+    bottom: -50px;
+    right: -120px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(31, 125, 0);
+    color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: none;
+}
+.CreateContainar .title .calcIco .CalcMenu input, 
+.CreateContainar .title .calcIco .CalcMenu .CalcResult{
+    background-color: transparent;
+    width: calc(33% - 20px);
+    height: 25px;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    line-height: 30px;
+    font-size: medium;
+    user-select: all;
+}
+.CreateContainar .title .calcIco .CalcMenu input{
+    border-left: 2px solid white;
+}
+.CreateContainar .title .calcIco .CalcMenu input::placeholder{
+    color: white;
+    font-size: small;
+}
+::-webkit-inner-spin-button{
+    appearance: none;
+}
+.CreateContainar .content{
+    width: 100%;
+    height: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.CreateContainar .content #MapName,.read_mapName{
+    width: 95%;
+    height: 40px;
+    background-color: rgb(76 101 197);
+    color: rgb(255, 255, 255);
+    padding: 0 5px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    outline: none;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bolder;
+    margin-right: 25px;
+    border: none;
+}
+.CreateContainar .content #MapName::placeholder{
+    color: rgb(255, 255, 255);
+    font-size: small;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.CreateContainar .content section{
+    width: 100%;
+    height: calc(100% - 100px);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+.CreateContainar .content section .MapProperties,
+.CreateContainar .content section .table{
+    width: 298px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    margin-top: 20px;
+    max-height:100%;
+    position: relative;
+}
+.CreateContainar .content section .MapProperties{
+    justify-content: space-evenly;
+}
+.CreateContainar .content section .MapProperties li{
+    list-style: none;
+    width: 95%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 20px;
+    font-size: 15px;
+}
+.CreateContainar .content section .MapProperties li select{
+    background-color: rgba(255, 255, 255, 0.279);
+    outline: none;
+    border-radius: 10px;
+    font-size: small;
+    cursor: pointer;
+}
+.CreateContainar .content section .MapProperties li select option{
+    color: black;
+}
+.CreateContainar .content section .MapProperties li input{
+    height: 20px;
+    outline: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: 800;
+    padding: 0 10px;
+    width: 90px;
+}
+.CreateContainar .content section .MapProperties .auto{
+    cursor: not-allowed;
+    color: rgb(165, 165, 165);
+    gap: 5px;
+}
+.CreateContainar .content section .MapProperties .auto span{
+    color: rgb(172, 172, 172);
+}
+.CreateContainar .content section .table{
+    width: 375px;
+    justify-content: flex-start;
+    overflow: auto;
+}
+.CreateContainar .content section .table table{
+    width: 97%;
+    max-height:calc(100% - 60px);
+    margin-left: 3%;
+    border-spacing: 0px;
+}
+.CreateContainar .content section .table table caption{
+    font-size: large;
+    margin-bottom: 10px;
+}
+.CreateContainar .content section .table table thead tr{
+    background-color: rgb(1, 139, 134);
+}
+.CreateContainar .content section .table table th{
+    height: 50px;
+}
+.CreateContainar .content section .table table .ThProtien{
+    font-size: small;
+    font-weight: 800;
+}
+.CreateContainar .content section .table table td{
+    width: calc(25% - 8px);
+    height: 50px;
+    padding: 4px;
+}
+.CreateContainar .content section .table table .ingredWasn{
+    width: 110px;
+}
+.CreateContainar .content section .table table .ingredWasn input{
+    width: 50px;
+}
+.CreateContainar .content section .table table .ingredPrtienTd{
+    width: 80px;
+}
+.CreateContainar .content section .table table .ingredPrtienTd input{
+    width: 50px;
+    display: inline-block;
+}
+.CreateContainar .content section .table table .ingredWasn select{
+    width: 50px;
+    background-color: transparent;
+    font-size: small;
+    height: 22px;
+}
+/* .CreateContainar .content section .table table td{
+    background-color: rgba(255, 0, 0, 0.157);
+} */
+.CreateContainar .content section .table table td input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+.CreateContainar .content section .table table  input::placeholder{
+    color: rgb(188, 188, 188);
+}
+.CreateContainar .content section .table table tbody select{
+    color: rgb(188, 188, 188);
+}
+.CreateContainar .content section .table table tbody select option{
+    color: black;
+}
+.CreateContainar .content section .table table tbody tr:nth-of-type(even){
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.CreateContainar .content section .table #addNewItem{
+    width: 97%;
+    height: 35px;
+    padding: 5px 0px;
+    margin-left: 3%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-weight: bolder;
+    font-size: 11px;
+    background-color: rgb(0, 108, 141);
+    transition: .2s;
+}
+.CreateContainar .content section .table #addNewItem:hover{
+    background-color: rgb(0, 135, 177);
+}
+.DeletRows{
+    width: 10px;
+    max-height:100% ;
+    position: absolute;
+    left: 0;
+    top: 93px;
+}
+.DeletRows li{
+    list-style: none;
+    color: red;
+    height: 50px;
+    padding: 4px 0px;
+    padding-left: 2px;
+    text-align: left;
+    line-height: 50px;
+    font-size: large;
+    user-select: none;
+    cursor: pointer;
+}
+.CreateContainar .content section .notes {
+    width: 130px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+.CreateContainar .content section .notes textarea,#ReadNotes{
+    border: 2px solid white;
+    width: calc(95% - 5px);
+    height: 85%;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 2.5px;
+    resize: none;
+    direction: auto;
+    position: relative;
+}
+.CreateContainar .content section .notes textarea::placeholder{
+    color: white;
+    float: right;
+}
+.CreateContainar .content .MapButtons{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.CreateContainar .content .MapButtons button{
+    border: none;
+    outline: none;
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bolder;
+    transition: .2s;
+    cursor: pointer;
+}
+.CreateContainar .content .MapButtons .SaveMap{
+    background-color: rgb(0, 95, 0);
+}
+.CreateContainar .content .MapButtons .SaveMap:hover{
+    background-color: rgb(0, 169, 0);
+}
+.CreateContainar .content .MapButtons .DeletMap {
+    background-color: rgb(95, 0, 0);
+}
+.CreateContainar .content .MapButtons .DeletMap:hover {
+    background-color: rgb(214, 0, 0);
+}
+.ShowContainar{
+    width: 100%;
+    min-height: calc(100% - (500px + 50px));
+    padding-top: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 50px;
+    position: relative;
+}
+.ShowContainar .addNewMap {
+    width: 400px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: rgb(42, 150, 0);
+    font-size: large;
+    transition: .2s;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.ShowContainar .addNewMap:hover{
+    background-color: rgb(27, 96, 0);
+}
+.ShowContainar .cards{
+    width: 100%;
+    min-height: calc(100% - (500px + 50px));
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    position:sticky;
+    top: 55px;
+}
+.ShowContainar .card{
+    width: 575px;
+    height: 350px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: .5;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.editingCardFocus{
+    order: 1;
+}
+.editingCardFocus::after {
+    content: "يتم عرض / تعديل هذه الخطة الآن";
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: red;
+}
+.EditingCardBlur{
+    order: 2;
+}
+.EditingCardBlur span{
+    display: none !important;
+}
+.ShowContainar .card .cardNote{
+    width: 500px;
+    max-height: 300px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 20px 20px 0 0 ;
+}
+.ShowContainar .card .cardNote .content{
+    width: calc(100% - 20px);
+    min-height: calc(70px);
+    max-height: calc(300px - 60px);
+    padding: 10px 10px;
+    border-radius: 0 0 5px 5px;
+    display: none;
+    transition: .1s;
+}
+.ShowContainar .card .cardNote .btn{
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 40px;
+    border-radius: 20px 20px 0px 0px;
+    background-color: rgb(50, 50, 50);
+    transition: .2s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.ShowContainar .card .cardNote .btn:hover{
+    background-color: rgba(255, 255, 255, 0.200);
+}
+/* .ShowContainar .card .cardNote .btn => .ShowContainar .card .cardNote .BtnAct*/
+.BtnAct{
+    background-color: rgba(255, 255, 255, 0.200) !important;
+}
+.displayFlex{
+    display: flex !important;
+}
+.ShowContainar .card .cardNote .btn img{
+    transition: .2s;
+}
+.ShowContainar .card .cardNote .BtnAct img{
+    transform: rotateZ(180deg);
+}
+.ShowContainar .card .cardConent{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(50, 50, 50);
+    border-radius: 20px;
+}
+.ShowContainar .card .cardConent .cardName{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 50px;
+}
+.ShowContainar .card .cardConent .cardInfo{
+    width: calc(100% - 20px);
+    height: calc(100% - (40px + 30px + 20px));
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.ShowContainar .card .cardConent .cardInfo li{
+    list-style: none;
+    flex-grow: 1;
+    width: 240px;
+    height: 40px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 40px;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.217);
+}
+.ShowContainar .card .cardConent .mapButtons{
+    height: 30px;
+    width: 100%;
+    text-align: center;
+    color: rgb(88 134 211);
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
+}
+.ShowContainar .card .cardConent .mapButtons span{
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    transition: .3s;
+}
+.ShowContainar .card .cardConent .mapButtons .DeletMap{
+    background-color: darkred;
+}
+.ShowContainar .card .cardConent .mapButtons .DeletMap:hover {
+    background-color: rgb(212, 0, 0);
+}
+.ShowContainar .card .cardConent .mapButtons .showMoreInfo {
+    background-color: rgb(0, 83, 139);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.ShowContainar .card .cardConent .showMoreInfo:hover{
+    background-color: rgb(0, 132, 219)
+}
+/* read conditions */
+.read_mapName{
+    text-align: center;
+    background-color:rgb(161 150 67);
+    line-height: 40px;
+}
+#ReadNotes{
+    text-wrap: wrap;
+    overflow-wrap: break-word;
+}
+#ReadNotes::after{
+    content: "الملاحطات";
+    width: 90px;
+    height: 25px;
+    background-color: rgb(149, 116, 0);
+    font-size: small;
+    text-align: center;
+    font-weight: 800;
+    position: absolute;
+    top:-20px;
+    right: 50%;
+    translate: 50% 0;
+    border-radius: 10px;
+}
+/* tabel tbody */
+#ReadMapTbody tr td{
+    text-align: center;
+}
+/* edit maps */
+/* .edit => .Containar */
+.edit #MapName{
+    text-align: center;
+}
