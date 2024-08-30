@@ -318,13 +318,14 @@ let trIndex = 0;
 function NewRow() {
     let tr = document.createElement("tr");
     tr.id = `row${trIndex}`;
+    tr.setAttribute("data-number",trIndex);
     tr.innerHTML = `
     <td class='tdName'>
-        <input type="text" placeholder="الإسم" class="ingredName">
+        <input type="text" placeholder="الإسم" class="ingredName" data-ParentTr='row${trIndex}' onfocus='GoToNextFeild(this)'>
     </td>
     <td class="ingredWasn">
         <span>
-            <input type="number" placeholder="الكمية" class="ingredMuch" oninput='InnerTotalWasn()'>
+            <input type="number" placeholder="الكمية" class="ingredMuch" data-ParentTr='row${trIndex}' oninput='InnerTotalWasn();' onfocus='GoToNextFeild(this)'>
             <select class="ingredUnit" onchange='InnerTotalWasn()'>
                 <option value="كيلو">كيلو</option>
                 <option value="جرام">جرام</option>
@@ -332,10 +333,10 @@ function NewRow() {
         </span>
     </td>
     <td class='tdPrice'>
-        <input type="number" class="ingredPrice" placeholder="السعر الكلي" oninput='InnerTotalPrice()'>
+        <input type="number" class="ingredPrice" placeholder="السعر الكلي" oninput='InnerTotalPrice();' data-ParentTr='row${trIndex}' onfocus='GoToNextFeild(this)'>
     </td>
     <td class="ingredPrtienTd">
-        <input type="number" class="ingredProtein" placeholder="البروتين" oninput='InnerTotalProtien()'>
+        <input type="number" class="ingredProtein" placeholder="البروتين" oninput='InnerTotalProtien();'  data-ParentTr='row${trIndex}' onfocus='GoToNextFeild(this)'>
         <span style="display: inline-block;">%</span>
     </td>`;
     // delet row
@@ -378,7 +379,6 @@ function InnerTotalProtien() {
         let add =(+trs[i].querySelector("td .ingredMuch").value/+weightSP) * +trs[i].querySelector("td .ingredProtein").value
         let val = +proteinSP.textContent + add;
         proteinSP.textContent = +val.toFixed(1);
-        // .log(weightSP/100)
     }
 }
 function InnerTotalPrice() {
@@ -404,6 +404,40 @@ function InnerTotalWasn() {
     }
     InnerTotalProtien();
 }
+//  Focus input return tabel td input input focus class
+let FocusInput = '';
+//  Focus input_tr return input focus tr id
+let FocusInput_Tr = '';
+// Go to next feild in tabel tds input
+function GoToNextFeild(input) {
+    FocusInput=input.className;
+    FocusInput_Tr = input.getAttribute("data-ParentTr");
+}
+document.body.addEventListener("keyup", (e) => {
+    if (e.key == 'Enter') {
+        if (FocusInput == 'ingredName') {
+            document.querySelector(`#${FocusInput_Tr} .${FocusInput}`).blur();
+            document.querySelector(`#${FocusInput_Tr} .ingredMuch`).focus();
+        }
+        else if (FocusInput == 'ingredMuch') {
+            document.querySelector(`#${FocusInput_Tr} .${FocusInput}`).blur();
+            document.querySelector(`#${FocusInput_Tr} .ingredPrice`).focus();          
+        }
+        else if (FocusInput == 'ingredPrice') { 
+            document.querySelector(`#${FocusInput_Tr} .${FocusInput}`).blur();
+            document.querySelector(`#${FocusInput_Tr} .ingredProtein`).focus();
+
+        }
+        else if (FocusInput == 'ingredProtein') {
+            let check = +document.querySelector(`#${FocusInput_Tr}`).getAttribute("data-number");
+            if (document.querySelector(`#row${check+1}`)) {
+                document.querySelector(`#${FocusInput_Tr} .${FocusInput}`).blur();
+                document.querySelector(`#row${check+1} .ingredName`).focus();
+            }
+
+        }
+    }
+})
 // [5] create map =>{
 function CreateMap() {
 // 2:[create & push] map to array & LocalStorage

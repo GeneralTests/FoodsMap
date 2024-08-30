@@ -1,8 +1,8 @@
 /* هذه الواجهة عندما لا يكون هناك اي عنصؤ */
 .NoOneMap {
     width: 90%;
-    height: 90%;
-    background-color: rgb(33, 33, 33);
+    height: 400px;
+    background-color: rgb(29, 125, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,6 +12,7 @@
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
+    border-radius: 25px;
 }
 
 .NoOneMap .text button {

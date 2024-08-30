@@ -8,6 +8,17 @@
     font-weight: 500;
     font-style: normal;
 }
+::-webkit-scrollbar{
+    appearance: none;
+    width: 7px;
+    border-radius: 10px;
+    background-color: white;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(127.5,127.5, 127.5);
+    width: 5px !important;
+    border-radius: 10px;
+}
 body{
     width: calc(100% - 40px);
     height: calc(100vh - 40px);
